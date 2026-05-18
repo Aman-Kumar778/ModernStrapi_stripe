@@ -1,0 +1,1064 @@
+@import "../../css-config/mixins.scss";
+
+.checkout-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 30px 20px;
+  font-family: "Outfit", "Inter", sans-serif;
+  color: #212121;
+
+  @include md {
+    padding: 60px 40px;
+  }
+
+  .checkout-title {
+    text-align: center;
+    margin-bottom: 40px;
+
+    h1 {
+      font-size: 26px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 8px;
+      position: relative;
+      display: inline-block;
+      padding-bottom: 8px;
+
+      @include md {
+        font-size: 34px;
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60px;
+        height: 3px;
+        background: linear-gradient(to right, #8e2de2, #4a00e0);
+        border-radius: 2px;
+      }
+    }
+
+    p {
+      font-size: 14px;
+      color: rgba(0, 0, 0, 0.5);
+      font-weight: 500;
+    }
+  }
+
+  .checkout-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+    @include md {
+      flex-direction: row;
+      align-items: flex-start;
+      gap: 40px;
+    }
+
+    // Left Column Form Style
+    .checkout-form-panel {
+      flex-grow: 1;
+      width: 100%;
+
+      @include md {
+        width: calc(100% - 420px);
+      }
+
+      .form-section {
+        background-color: #ffffff;
+        border: 1px solid rgba(0, 0, 0, 0.05);
+        border-radius: 12px;
+        padding: 20px;
+        margin-bottom: 24px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.01);
+
+        @include md {
+          padding: 30px;
+        }
+
+        h2 {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          font-size: 16px;
+          font-weight: 700;
+          text-transform: uppercase;
+          letter-spacing: 0.5px;
+          margin-bottom: 25px;
+          color: #212121;
+          border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+          padding-bottom: 12px;
+
+          .num {
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            background-color: #8e2de2;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 13px;
+            font-weight: 700;
+            flex-shrink: 0;
+          }
+        }
+
+        .input-row {
+          display: flex;
+          flex-direction: column;
+          gap: 15px;
+
+          @include md {
+            flex-direction: row;
+            .input-group {
+              flex: 1;
+              margin-bottom: 0;
+            }
+          }
+        }
+
+        .input-group {
+          display: flex;
+          flex-direction: column;
+          gap: 6px;
+          margin-bottom: 18px;
+
+          &.full-width {
+            width: 100%;
+          }
+
+          label {
+            font-size: 11px;
+            font-weight: 600;
+            color: rgba(0, 0, 0, 0.5);
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+          }
+
+          .input-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+            width: 100%;
+
+            .field-icon {
+              position: absolute;
+              left: 12px;
+              color: rgba(0, 0, 0, 0.35);
+              font-size: 14px;
+            }
+
+            input {
+              width: 100%;
+              height: 44px;
+              border-radius: 6px;
+              border: 1.5px solid rgba(0, 0, 0, 0.1);
+              padding-left: 36px;
+              padding-right: 14px;
+              font-size: 14px;
+              font-weight: 500;
+              transition: all 0.2s ease;
+              color: #212121;
+
+              &::placeholder {
+                color: rgba(0, 0, 0, 0.3);
+              }
+
+              &:focus {
+                border-color: #8e2de2;
+                box-shadow: 0 0 0 4px rgba(142, 45, 226, 0.08);
+                outline: none;
+              }
+            }
+          }
+        }
+
+        // Payment selector Tabs
+        .payment-tabs {
+          display: flex;
+          flex-direction: column;
+          gap: 12px;
+          margin-bottom: 20px;
+
+          @include md {
+            flex-direction: row;
+          }
+
+          .payment-tab {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 14px;
+            border: 1.5px solid rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+
+            .tab-icon {
+              font-size: 18px;
+              color: rgba(0, 0, 0, 0.4);
+              transition: color 0.2s ease;
+            }
+
+            .text-box {
+              display: flex;
+              flex-direction: column;
+
+              .title {
+                font-size: 13px;
+                font-weight: 600;
+                color: #212121;
+              }
+
+              .desc {
+                font-size: 11px;
+                color: rgba(0, 0, 0, 0.4);
+                font-weight: 500;
+              }
+            }
+
+            &:hover {
+              border-color: rgba(142, 45, 226, 0.4);
+            }
+
+            &.active {
+              border-color: #8e2de2;
+              background-color: rgba(142, 45, 226, 0.03);
+
+              .tab-icon {
+                color: #8e2de2;
+              }
+            }
+          }
+        }
+
+        .payment-tab-content {
+          background-color: #fafafa;
+          border-radius: 8px;
+          padding: 18px;
+          border: 1px solid rgba(0, 0, 0, 0.03);
+          margin-bottom: 20px;
+
+          label {
+            font-size: 11px;
+            font-weight: 600;
+            color: rgba(0, 0, 0, 0.5);
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            display: block;
+            margin-bottom: 6px;
+          }
+
+          .input-wrapper input {
+            background-color: #ffffff;
+          }
+
+          .hint {
+            display: block;
+            font-size: 11px;
+            color: rgba(0, 0, 0, 0.4);
+            margin-top: 6px;
+            font-weight: 500;
+          }
+
+          &.card-fields {
+            .input-group input {
+              background-color: #ffffff;
+              padding-left: 14px;
+            }
+            .input-group.full-width input {
+              padding-left: 36px;
+            }
+          }
+        }
+
+        .pay-now-btn {
+          width: 100%;
+          height: 48px;
+          border-radius: 6px;
+          border: 0;
+          outline: 0;
+          cursor: pointer;
+          color: #ffffff;
+          background: linear-gradient(to right, #8e2de2, #4a00e0);
+          font-size: 14px;
+          font-weight: 700;
+          text-transform: uppercase;
+          letter-spacing: 0.5px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transition: all 0.2s ease;
+          border-bottom: 4px solid #6516aa;
+
+          &:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(142, 45, 226, 0.25);
+          }
+        }
+      }
+    }
+
+    // Right Column Order Summary
+    .checkout-summary-panel {
+      width: 100%;
+      background-color: #fafafa;
+      border: 1px solid rgba(0, 0, 0, 0.05);
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.01);
+      position: sticky;
+      top: 100px;
+
+      @include md {
+        width: 380px;
+      }
+
+      h2 {
+        font-size: 16px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        margin-bottom: 20px;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+        padding-bottom: 12px;
+      }
+
+      .summary-products {
+        max-height: 250px;
+        overflow-y: auto;
+        margin-bottom: 20px;
+
+        .product-row {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          padding-bottom: 12px;
+          margin-bottom: 12px;
+          border-bottom: 1px dashed rgba(0, 0, 0, 0.06);
+
+          .img-box {
+            width: 48px;
+            height: 48px;
+            background-color: #ffffff;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            border-radius: 6px;
+            padding: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            flex-shrink: 0;
+
+            img {
+              max-width: 100%;
+              max-height: 100%;
+              object-fit: contain;
+            }
+
+            .qty-badge {
+              position: absolute;
+              top: -6px;
+              right: -6px;
+              background-color: #8e2de2;
+              color: #ffffff;
+              font-size: 9px;
+              font-weight: 700;
+              width: 16px;
+              height: 16px;
+              border-radius: 50%;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+            }
+          }
+
+          .details {
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            min-width: 0;
+
+            .title {
+              font-size: 13px;
+              font-weight: 600;
+              color: #212121;
+              text-overflow: ellipsis;
+              white-space: nowrap;
+              overflow: hidden;
+            }
+
+            .price-item {
+              font-size: 11px;
+              color: rgba(0, 0, 0, 0.4);
+              font-weight: 500;
+              margin-top: 2px;
+            }
+          }
+
+          .item-subtotal {
+            font-size: 13px;
+            font-weight: 700;
+            color: #212121;
+          }
+        }
+      }
+
+      .summary-breakdowns {
+        .breakdown-row {
+          display: flex;
+          justify-content: space-between;
+          font-size: 13px;
+          color: rgba(0, 0, 0, 0.5);
+          font-weight: 500;
+          margin-bottom: 10px;
+
+          .free {
+            color: #00b09b;
+            font-weight: 700;
+          }
+        }
+
+        .shipping-hint {
+          display: block;
+          font-size: 11px;
+          color: #8e2de2;
+          font-weight: 600;
+          margin-bottom: 12px;
+          background-color: rgba(142, 45, 226, 0.05);
+          padding: 6px 10px;
+          border-radius: 4px;
+        }
+
+        .grand-total-row {
+          border-top: 1.5px dashed rgba(0, 0, 0, 0.1);
+          padding-top: 15px;
+          margin-top: 15px;
+          font-size: 16px;
+          font-weight: 700;
+          color: #212121;
+
+          span:last-child {
+            color: #8e2de2;
+            font-size: 20px;
+            font-weight: 800;
+          }
+        }
+      }
+    }
+  }
+}
+
+// ----------------------------------------------------
+// RAZORPAY / BANK MODALS & SIMULATOR OVERLAYS
+// ----------------------------------------------------
+
+.processing-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  background-color: rgba(255, 255, 255, 0.92);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .loading-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    text-align: center;
+    padding: 20px;
+
+    .spinner {
+      font-size: 42px;
+      color: #8e2de2;
+      animation: spin 1s linear infinite;
+    }
+
+    .razorpay-header {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+
+      .bold {
+        font-size: 18px;
+        font-weight: 800;
+        color: #1a2530;
+      }
+
+      .badge {
+        font-size: 9px;
+        font-weight: 700;
+        background-color: #ff9800;
+        color: #ffffff;
+        padding: 2px 6px;
+        border-radius: 4px;
+        letter-spacing: 0.5px;
+      }
+    }
+
+    .status-text {
+      font-size: 14px;
+      font-weight: 500;
+      color: rgba(0, 0, 0, 0.6);
+    }
+  }
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 99999;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(3px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+
+  // Razorpay UPI Dialog
+  .upi-modal {
+    width: 100%;
+    max-width: 440px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 24px 50px rgba(0, 0, 0, 0.35);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+
+    .modal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 15px 20px;
+      background-color: #f7f9fc;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+
+      .razorpay-logo {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+
+        span {
+          font-size: 15px;
+          font-weight: 800;
+          color: #1a2530;
+        }
+
+        .badge {
+          font-size: 8px;
+          font-weight: 700;
+          background-color: #3f51b5;
+          color: #ffffff;
+          padding: 1px 4px;
+          border-radius: 3px;
+        }
+      }
+
+      .amount {
+        font-size: 15px;
+        font-weight: 700;
+        color: #8e2de2;
+      }
+    }
+
+    .modal-body {
+      padding: 24px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .phone-icon {
+        font-size: 54px;
+        color: #8e2de2;
+        margin-bottom: 12px;
+      }
+
+      h3 {
+        font-size: 18px;
+        font-weight: 700;
+        color: #212121;
+        margin-bottom: 8px;
+      }
+
+      p {
+        font-size: 13px;
+        line-height: 1.5;
+        color: rgba(0, 0, 0, 0.6);
+        margin-bottom: 10px;
+
+        &.instruction {
+          font-size: 12px;
+          color: rgba(0, 0, 0, 0.4);
+          background-color: #fafafa;
+          padding: 8px 12px;
+          border-radius: 6px;
+          margin-bottom: 16px;
+        }
+      }
+
+      .timer-box {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: #fafafa;
+        border: 1px solid rgba(0, 0, 0, 0.05);
+        padding: 8px 16px;
+        border-radius: 6px;
+        margin-bottom: 20px;
+
+        .label {
+          font-size: 10px;
+          text-transform: uppercase;
+          letter-spacing: 0.5px;
+          color: rgba(0, 0, 0, 0.4);
+          font-weight: 600;
+        }
+
+        .time {
+          font-size: 22px;
+          font-weight: 700;
+          color: #ff3838;
+          font-family: monospace;
+          margin-top: 2px;
+        }
+      }
+
+      .simulate-btn {
+        width: 100%;
+        height: 44px;
+        border-radius: 6px;
+        border: 0;
+        background: linear-gradient(to right, #00b09b, #96c93d);
+        color: #ffffff;
+        font-weight: 700;
+        font-size: 12px;
+        text-transform: uppercase;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        border-bottom: 3.5px solid #008c7a;
+        box-shadow: 0 4px 10px rgba(0, 176, 155, 0.2);
+        transition: all 0.15s ease;
+
+        &:hover {
+          transform: translateY(-1px);
+        }
+      }
+    }
+
+    .modal-footer {
+      padding: 15px;
+      border-top: 1px solid rgba(0, 0, 0, 0.05);
+      background-color: #f7f9fc;
+      text-align: center;
+
+      .cancel-btn {
+        background: none;
+        border: 0;
+        cursor: pointer;
+        font-size: 12px;
+        font-weight: 600;
+        color: rgba(0, 0, 0, 0.4);
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+
+        &:hover {
+          color: #ff3838;
+        }
+      }
+    }
+  }
+
+  // Card OTP secure modal
+  .otp-modal {
+    width: 100%;
+    max-width: 440px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 24px 50px rgba(0, 0, 0, 0.35);
+    overflow: hidden;
+
+    .bank-header {
+      background-color: #1a2530;
+      padding: 15px 20px;
+      color: #ffffff;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+
+      .bank-title {
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+      }
+
+      .secure-badge {
+        font-size: 9px;
+        color: rgba(255, 255, 255, 0.5);
+        font-weight: 600;
+        letter-spacing: 0.3px;
+      }
+    }
+
+    .otp-body {
+      padding: 24px;
+
+      h3 {
+        font-size: 16px;
+        font-weight: 700;
+        margin-bottom: 8px;
+        color: #212121;
+      }
+
+      p {
+        font-size: 12.5px;
+        line-height: 1.5;
+        color: rgba(0, 0, 0, 0.6);
+        margin-bottom: 20px;
+      }
+
+      .otp-form {
+        .input-group {
+          margin-bottom: 20px;
+
+          input {
+            width: 100%;
+            height: 44px;
+            border-radius: 6px;
+            border: 2px solid rgba(0, 0, 0, 0.1);
+            text-align: center;
+            font-size: 20px;
+            font-weight: 700;
+            letter-spacing: 4px;
+            outline: none;
+
+            &:focus {
+              border-color: #8e2de2;
+            }
+          }
+
+          .helper {
+            display: block;
+            text-align: center;
+            font-size: 10px;
+            color: rgba(0, 0, 0, 0.4);
+            margin-top: 6px;
+            font-weight: 600;
+          }
+        }
+
+        .otp-buttons {
+          display: flex;
+          gap: 12px;
+
+          button {
+            flex: 1;
+            height: 40px;
+            border-radius: 4px;
+            border: 0;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+          }
+
+          .submit-otp-btn {
+            background-color: #8e2de2;
+            color: #ffffff;
+
+            &:hover {
+              background-color: #6516aa;
+            }
+          }
+
+          .cancel-otp-btn {
+            background-color: #fafafa;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            color: rgba(0, 0, 0, 0.5);
+
+            &:hover {
+              background-color: #f0f0f0;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// ----------------------------------------------------
+// INVOICE SUCCESS PAGE
+// ----------------------------------------------------
+
+.invoice-success-container {
+  max-width: 660px;
+  margin: 30px auto;
+  padding: 0 10px;
+  animation: slideWishlistWindow 0.4s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+
+  .success-badge-card {
+    text-align: center;
+    margin-bottom: 25px;
+
+    .check-success {
+      font-size: 64px;
+      color: #00b09b;
+      margin-bottom: 12px;
+      animation: checkPulse 1.8s infinite ease-in-out;
+    }
+
+    h1 {
+      font-size: 24px;
+      font-weight: 800;
+      color: #212121;
+      margin-bottom: 6px;
+    }
+
+    p {
+      font-size: 14px;
+      color: rgba(0, 0, 0, 0.5);
+      font-weight: 500;
+    }
+  }
+
+  .invoice-receipt {
+    background-color: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 12px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.04);
+    overflow: hidden;
+
+    .receipt-header {
+      background: linear-gradient(to right, #8e2de2, #4a00e0);
+      padding: 24px;
+      color: #ffffff;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+
+      @include md {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .logo {
+        font-size: 22px;
+        font-weight: 800;
+        letter-spacing: 0.5px;
+      }
+
+      .meta {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        font-size: 11px;
+        font-weight: 500;
+        opacity: 0.9;
+        text-align: left;
+
+        @include md {
+          text-align: right;
+        }
+
+        strong {
+          color: #ffffff;
+        }
+      }
+    }
+
+    .receipt-body {
+      padding: 24px;
+
+      .section {
+        margin-bottom: 20px;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        padding-bottom: 18px;
+
+        &:last-of-type {
+          border-bottom: 0;
+          padding-bottom: 0;
+          margin-bottom: 0;
+        }
+
+        h3 {
+          font-size: 12px;
+          text-transform: uppercase;
+          letter-spacing: 0.8px;
+          color: rgba(0, 0, 0, 0.4);
+          font-weight: 700;
+          margin-bottom: 12px;
+        }
+
+        .summary-grid {
+          display: grid;
+          grid-template-columns: 1fr;
+          gap: 12px;
+
+          @include md {
+            grid-template-columns: 1fr 1fr;
+          }
+
+          .span-2 {
+            @include md {
+              grid-column: span 2;
+            }
+          }
+
+          div {
+            font-size: 13px;
+            color: rgba(0, 0, 0, 0.6);
+            font-weight: 500;
+
+            strong {
+              color: #212121;
+              font-weight: 600;
+            }
+          }
+
+          .success-tag {
+            color: #00b09b;
+            font-weight: 700;
+            background-color: rgba(0, 176, 155, 0.06);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 11px;
+          }
+        }
+
+        .receipt-items {
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+
+          .receipt-item {
+            display: flex;
+            justify-content: space-between;
+            font-size: 13.5px;
+            font-weight: 500;
+            color: rgba(0, 0, 0, 0.7);
+
+            .item-name {
+              text-overflow: ellipsis;
+              white-space: nowrap;
+              overflow: hidden;
+              max-width: 80%;
+            }
+
+            .item-price {
+              font-weight: 700;
+              color: #212121;
+              flex-shrink: 0;
+            }
+          }
+        }
+      }
+
+      .total-section {
+        background-color: #fafafa;
+        border-radius: 8px;
+        padding: 15px;
+
+        .row {
+          display: flex;
+          justify-content: space-between;
+          font-size: 13px;
+          color: rgba(0, 0, 0, 0.5);
+          font-weight: 500;
+          margin-bottom: 8px;
+
+          &:last-of-type {
+            margin-bottom: 0;
+          }
+
+          &.grand-row {
+            border-top: 1px dashed rgba(0, 0, 0, 0.1);
+            padding-top: 10px;
+            margin-top: 10px;
+            font-size: 15px;
+            font-weight: 700;
+            color: #212121;
+
+            span:last-child {
+              color: #8e2de2;
+              font-size: 18px;
+              font-weight: 800;
+            }
+          }
+        }
+      }
+    }
+
+    .receipt-footer {
+      padding: 20px 24px;
+      border-top: 1px solid rgba(0, 0, 0, 0.05);
+      background-color: #fafafa;
+      text-align: center;
+
+      p {
+        font-size: 11px;
+        color: rgba(0, 0, 0, 0.4);
+        margin-bottom: 16px;
+        font-weight: 500;
+      }
+
+      .continue-btn {
+        height: 44px;
+        border: 0;
+        border-radius: 4px;
+        padding: 0 24px;
+        color: #ffffff;
+        background: linear-gradient(to right, #8e2de2, #4a00e0);
+        cursor: pointer;
+        font-weight: 700;
+        font-size: 13px;
+        text-transform: uppercase;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        border-bottom: 3.5px solid #6516aa;
+        transition: all 0.2s ease;
+
+        &:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 4px 10px rgba(142, 45, 226, 0.2);
+        }
+      }
+    }
+  }
+}
+
+// ----------------------------------------------------
+// KEYFRAME ANIMATIONS
+// ----------------------------------------------------
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes checkPulse {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.1); opacity: 0.85; }
+  100% { transform: scale(1); opacity: 1; }
+}

@@ -5,6 +5,7 @@ import Footer from "./components/Footer/Footer";
 import Home from "./components/Home/Home";
 import Category from "./components/Category/Category";
 import SingleProduct from "./components/SingleProduct/SingleProduct";
+import Checkout from "./components/Checkout/Checkout"; // Import new high-fidelity Checkout page
 import Newsletter from "./components/Footer/Newsletter/Newsletter";
 
 import AppContext from "./utils/context";
@@ -18,6 +19,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/category/:id" element={<Category />} />
           <Route path="/product/:id" element={<SingleProduct />} />
+          <Route path="/checkout" element={<Checkout />} />
         </Routes>
         <Newsletter />
         <Footer />
@@ -27,3 +29,4 @@ function App() {
 }
 
 export default App;
+
