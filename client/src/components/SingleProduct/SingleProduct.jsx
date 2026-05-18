@@ -14,7 +14,6 @@ import {
 } from "react-icons/fa";
 import useFetch from "../../hooks/useFetch";
 import { useParams } from "react-router-dom";
-import prod from "../../assets/products/earbuds-prod-1.webp";
 
 const SingleProduct = () => {
   const [quantity, setQuantity] = useState(1);

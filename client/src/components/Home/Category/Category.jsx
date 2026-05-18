@@ -2,8 +2,6 @@ import { useNavigate } from "react-router-dom";
 //for navigating to each category page onclick and with id we wil ues useNavigate laiv
 import "./Category.scss";
 
-import cat1 from "../../../assets/category/cat-1.jpg";
-
 const Category = ({ categories }) => {
   //now we need to create instace of the class
   const navigate = useNavigate();

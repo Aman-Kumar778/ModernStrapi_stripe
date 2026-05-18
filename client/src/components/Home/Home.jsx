@@ -19,6 +19,7 @@ const Home = () => {
   useEffect(() => {
     getProducts();
     getCategories();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   // for the product apis context
 
