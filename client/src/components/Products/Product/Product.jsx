@@ -1,23 +1,30 @@
 // to navigate to each product page
+import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import { FaStar, FaRegHeart, FaShoppingCart } from "react-icons/fa";
+import { FaStar, FaRegHeart, FaHeart, FaShoppingCart } from "react-icons/fa";
+import { Context } from "../../../utils/context";
 import "./Product.scss";
 
 const Product = ({ id, data }) => {
   const navigate = useNavigate();
+  const { handleAddToCart, handleAddToWishlist, wishlistItems } =
+    useContext(Context);
+
+  // Check if this product is currently in the wishlist
+  const isWishlisted = wishlistItems.some((item) => item.id === id);
 
   // Create a realistic crossed-out original price (40% markup)
   const originalPrice = Math.round(data.price * 1.4);
   const discountPercent = 28; // Standard commercial discount rate
 
-  const handleWishlist = (e) => {
+  const handleWishlistClick = (e) => {
     e.stopPropagation(); // Prevents navigating to product details page
-    // Optional: add to wishlist state
+    handleAddToWishlist({ id, attributes: data });
   };
 
-  const handleAddToCart = (e) => {
+  const handleAddToCartClick = (e) => {
     e.stopPropagation(); // Prevents navigating to product details page
-    // Optional: add to shopping cart context
+    handleAddToCart({ id, attributes: data }, 1);
   };
 
   return (
@@ -27,8 +34,12 @@ const Product = ({ id, data }) => {
         <span className="sale-badge">-{discountPercent}% OFF</span>
 
         {/* Floating Heart Button */}
-        <button className="wishlist-btn" onClick={handleWishlist}>
-          <FaRegHeart className="heart-icon" />
+        <button className="wishlist-btn" onClick={handleWishlistClick}>
+          {isWishlisted ? (
+            <FaHeart className="heart-icon active" />
+          ) : (
+            <FaRegHeart className="heart-icon" />
+          )}
         </button>
 
         {/* Product Image Thumbnail */}
@@ -40,7 +51,7 @@ const Product = ({ id, data }) => {
         </div>
 
         {/* Quick Add To Cart Slide-up */}
-        <div className="quick-add" onClick={handleAddToCart}>
+        <div className="quick-add" onClick={handleAddToCartClick}>
           <FaShoppingCart className="cart-icon-btn" />
           <span>Quick Add</span>
         </div>
@@ -78,4 +89,3 @@ const Product = ({ id, data }) => {
 };
 
 export default Product;
-

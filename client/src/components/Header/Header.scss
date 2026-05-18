@@ -88,8 +88,12 @@
         }
       }
 
+      .wishlist-icon,
       .cart-icon {
         position: relative;
+        display: flex;
+        align-items: center;
+        
         span {
           min-width: 20px;
           text-align: center;
@@ -104,6 +108,13 @@
           animation: badgePulse 2.5s infinite ease-in-out;
         }
       }
+
+      .wishlist-icon {
+        span {
+          background-color: #ff3838; // Crimson red count badge for saved items!
+        }
+      }
+
     }
   }
 

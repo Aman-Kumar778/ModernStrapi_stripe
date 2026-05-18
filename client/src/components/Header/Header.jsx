@@ -8,18 +8,20 @@ import { AiOutlineHeart } from "react-icons/ai";
 
 import Search from "./Search/Search";
 import Cart from "../Cart/Cart";
+import Wishlist from "../Wishlist/Wishlist"; // Import premium sliding Wishlist drawer
 import { Context } from "../../utils/context";
 
 import "./Header.scss";
-import CartItem from "../Cart/CartItem/CartItem";
 const Header = () => {
   //creating a navigate instances for navgihation
   const navigate = useNavigate();
-  const { cartCount } = useContext(Context);
+  const { cartCount, wishlistItems } = useContext(Context); // Extract wishlistItems from context
 
   const [schorlled, setschorlled] = useState(false);
   const [showCart, setShowCart] = useState(false);
   const [showSearch, setShowSearch] = useState(false);
+  const [showWishlist, setShowWishlist] = useState(false); // Wishlist visibility trigger
+
   const handleScroll = () => {
     const offset = window.scrollY;
     if (offset > 200) {
@@ -46,7 +48,13 @@ const Header = () => {
           </div>
           <div className="right">
             <TbSearch onClick={() => setShowSearch(true)} />
-            <AiOutlineHeart />
+            
+            {/* Interactive Wishlist Heart Trigger */}
+            <span className="wishlist-icon" onClick={() => setShowWishlist(true)}>
+              <AiOutlineHeart />
+              {!!wishlistItems?.length && <span>{wishlistItems.length}</span>}
+            </span>
+
             <span className="cart-icon" onClick={() => setShowCart(true)}>
               <CgShoppingCart />
               {!!cartCount && <span>{cartCount}</span>}
@@ -56,8 +64,10 @@ const Header = () => {
       </header>
       {showCart && <Cart setShowCart={setShowCart} />}
       {showSearch && <Search setShowSearch={setShowSearch} />}
+      {showWishlist && <Wishlist setShowWishlist={setShowWishlist} />}
     </>
   );
 };
 
 export default Header;
+

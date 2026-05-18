@@ -11,6 +11,7 @@ const AppContext = ({ children }) => {
   const [cartItems, setCartItems] = useState([]);
   const [cartCount, setCartCount] = useState(0);
   const [cartSubTotal, setCartSubTotal] = useState(0);
+  const [wishlistItems, setWishlistItems] = useState([]); // New global wishlist state
 
   //instance of uselocation
   const location = useLocation();
@@ -63,6 +64,20 @@ const AppContext = ({ children }) => {
     setCartItems(items);
   };
 
+  // Toggle dynamic wishlist method
+  const handleAddToWishlist = (product) => {
+    let items = [...wishlistItems];
+    let index = items.findIndex((p) => p.id === product.id);
+    if (index !== -1) {
+      // Toggle off: remove if already exists
+      items = items.filter((p) => p.id !== product.id);
+    } else {
+      // Toggle on: add product
+      items = [...items, product];
+    }
+    setWishlistItems(items);
+  };
+
   return (
     <Context.Provider
       value={{
@@ -79,6 +94,9 @@ const AppContext = ({ children }) => {
         handleAddToCart,
         handleRemoveFromCart,
         handleCartProductQuantity,
+        wishlistItems,
+        setWishlistItems,
+        handleAddToWishlist,
       }}
     >
       {children}
@@ -86,3 +104,4 @@ const AppContext = ({ children }) => {
   );
 };
 export default AppContext;
+
