@@ -1,0 +1,10 @@
+{
+    "version": 3,
+    "mappings": "AAEA,AAAA,aAAa,CAAC;EACZ,SAAS,EAAE,iBAAiB;EAC5B,MAAM,EAAE,MAAM;CAIf;;ACDG,MAAM,MAAM,MAAM,MAAM,SAAS,EAAE,KAAK;EDL5C,AAAA,aAAa,CAAC;IAIV,SAAS,EAAE,MAAM;GAEpB",
+    "sources": [
+        "Home.scss",
+        "../../css-config/mixins.scss"
+    ],
+    "names": [],
+    "file": "Home.css"
+}

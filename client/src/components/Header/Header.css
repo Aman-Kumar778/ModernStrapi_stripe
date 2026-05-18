@@ -1,0 +1,149 @@
+.main-header {
+  width: 100%;
+  padding: 0 20px;
+  background-color: #212121;
+  color: white;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  z-index: 99;
+}
+
+@media only screen and (min-width: 768px) {
+  .main-header {
+    padding: 0 40px;
+  }
+}
+
+.main-header .header-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 50px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+@media only screen and (min-width: 768px) {
+  .main-header .header-content {
+    height: 80px;
+  }
+}
+
+.main-header .header-content .left {
+  list-style-type: none;
+  display: none;
+  gap: 25px;
+}
+
+@media only screen and (min-width: 768px) {
+  .main-header .header-content .left {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+}
+
+.main-header .header-content .left li {
+  font-size: 15px;
+  font-weight: 600;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.main-header .header-content .center {
+  font-size: 22px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+@media only screen and (min-width: 768px) {
+  .main-header .header-content .center {
+    font-size: 34px;
+    position: absolute;
+    left: 50%;
+    -webkit-transform: translate(-50%);
+            transform: translate(-50%);
+  }
+}
+
+.main-header .header-content .right {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 20px;
+}
+
+@media only screen and (min-width: 768px) {
+  .main-header .header-content .right {
+    gap: 25px;
+  }
+}
+
+.main-header .header-content .right svg {
+  font-size: 20px;
+  cursor: pointer;
+}
+
+@media only screen and (min-width: 768px) {
+  .main-header .header-content .right svg {
+    font-size: 25px;
+  }
+}
+
+.main-header .header-content .right .cart-icon {
+  position: relative;
+}
+
+.main-header .header-content .right .cart-icon span {
+  min-width: 20px;
+  text-align: center;
+  background-color: #8e2de2;
+  padding: 2.4px;
+  position: absolute;
+  top: -5px;
+  right: -12px;
+  font-size: 12px;
+  line-height: 1;
+  border-radius: 10px;
+}
+
+.main-header.sticky-header {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  -webkit-transform: translateY(-80px);
+          transform: translateY(-80px);
+  -webkit-animation: stickyHeader 0.3s ease forwards;
+          animation: stickyHeader 0.3s ease forwards;
+}
+
+@-webkit-keyframes stickyHeader {
+  0% {
+    -webkit-transform: translateY(-80px);
+            transform: translateY(-80px);
+  }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+
+@keyframes stickyHeader {
+  0% {
+    -webkit-transform: translateY(-80px);
+            transform: translateY(-80px);
+  }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+/*# sourceMappingURL=Header.css.map */

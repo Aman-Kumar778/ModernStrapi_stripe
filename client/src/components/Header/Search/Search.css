@@ -1,0 +1,29 @@
+.search-modal {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  background-color: white;
+}
+
+.search-modal .form-field {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 10px 50px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+@media only screen and (min-width: 768px) {
+  .search-modal .form-field {
+    padding: 20px 0;
+  }
+}
+/*# sourceMappingURL=Search.css.map */

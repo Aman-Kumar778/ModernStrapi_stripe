@@ -1,0 +1,41 @@
+# Modern React Strapi Web - Git Ignore Setup
+
+# Dependencies
+node_modules/
+**/node_modules/
+
+# Production builds
+build/
+**/build/
+dist/
+**/dist/
+
+# Local env files (highly critical: do not push private stripe/auth credentials!)
+.env
+**/.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# IDEs and Editors
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# OS Files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+
+# Strapi internal files
+.strapi/
+.strapi-updater.json
+
+# Explicitly track SQLite DB and upload images so the clone is functional instantly
+!api/.tmp/data.db
+!api/public/uploads/
