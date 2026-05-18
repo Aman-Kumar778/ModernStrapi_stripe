@@ -8,8 +8,9 @@ const params = {
 
 export const fetchDataFromApi = async (url) => {
   try {
+    const baseUrl = (process.env.REACT_APP_DEV_URL || "").replace(/\/$/, "");
     const { data } = await axios.get(
-      process.env.REACT_APP_DEV_URL + url,
+      baseUrl + url,
       params
     );
     return data;
