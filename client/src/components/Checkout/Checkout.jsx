@@ -618,7 +618,7 @@ const Checkout = () => {
                     <div className="img-box">
                       <img
                         src={
-                          process.env.REACT_APP_DEV_URL +
+                          (process.env.REACT_APP_DEV_URL || "").replace(/\/$/, "") +
                           item.attributes.img.data[0].attributes.url
                         }
                         alt={item.attributes.title}

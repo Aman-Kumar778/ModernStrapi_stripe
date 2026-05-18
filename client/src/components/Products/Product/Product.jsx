@@ -45,7 +45,7 @@ const Product = ({ id, data }) => {
         {/* Product Image Thumbnail */}
         <div className="thumbnail">
           <img
-            src={process.env.REACT_APP_DEV_URL + data.img.data[0].attributes.url}
+            src={(process.env.REACT_APP_DEV_URL || "").replace(/\/$/, "") + data.img.data[0].attributes.url}
             alt={data.title}
           />
         </div>
