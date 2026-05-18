@@ -1,8 +1,26 @@
+import { useEffect } from "react";
 import "./Banner.scss";
 
 import BannerImg from "../../../assets/banner-img.png";
 
 const Banner = () => {
+  useEffect(() => {
+    const handleScroll = () => {
+      document.documentElement.style.setProperty(
+        "--scroll-y",
+        `${window.scrollY}px`
+      );
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    // Initialize scroll-y on mount
+    handleScroll();
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
     <div className="hero-banner">
       <div className="content">
@@ -24,3 +42,4 @@ const Banner = () => {
 };
 
 export default Banner;
+
